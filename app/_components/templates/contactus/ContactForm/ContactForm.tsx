@@ -19,7 +19,7 @@ export default function ContactForm() {
                         <textarea
                             className='p-3 aspect-[5/3] resize-none col-span-2 rounded-lg bg-second_dark md:bg-background text-white/80 outline-none placeholder:text-white/60 text-xs' placeholder='متن پیام'
                         ></textarea>
-                        <button className='p-3 rounded-lg bg-gradient-to-r from-yellow-500 to-orange-500 col-span-2 text-white font-bold outline-none text-xs'>
+                        <button className='lc-interactive p-3 rounded-lg bg-gradient-to-r from-[#FFC828] to-[#E65526] col-span-2 text-white font-bold outline-none text-xs'>
                             ثبت درخواست
                         </button>
                     </div>

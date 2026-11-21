@@ -1,3 +1,4 @@
+import Breadcrumb from "@/app/_components/modules/Breadcrumb/Breadcrumb";
 import Plans from "@/app/_components/templates/home/Plans/Plans";
 import Portfolios from "@/app/_components/templates/home/Portfolios/Portfolios";
 import Image from "next/image";
@@ -7,11 +8,12 @@ const page = () => {
   
   return (
     <>
-      <div className="mt-28 container">
+      <Breadcrumb />
+        <div className="mt-12 md:mt-20 container">
         <div className="relative flex justify-center">
           <h1 className="font-cinema text-3xl lg:text-6xl">تعرفه طراحی سایت</h1>
           <h2 className="absolute -top-10 text-3xl bg-gradient-to-b from-[#FFFFFF] to-[#030712] text-transparent bg-clip-text font-bold opacity-20 lg:text-6xl">
-            Website design fee
+            تعرفه طراحی سایت
           </h2>
         </div>
         <div className="flex flex-col items-center rounded-2xl gap-5 mt-5 bg-second_dark px-10 md:p-3 pb-10 md:flex-row-reverse ">
@@ -68,9 +70,9 @@ const page = () => {
           <div className="absolute top-0 left-0 w-full h-full bg-second_dark/90 flex justify-center items-center">
             <div className="z-10 text-center flex flex-col gap-[15px] px-8">
               <h3 className="text-[40px] font-normal font-cinema ">
-                {("phonetitle")}
+                برای شروع پروژه آماده‌اید؟
               </h3>
-              <p className="font-light">{("phonedesc")}</p>
+              <p className="font-light">برای دریافت مشاوره رایگان و اطلاع از هزینه طراحی سایت اختصاصی، با کارشناسان لاول کد تماس بگیرید.</p>
               <p>09305712252</p>
             </div>
           </div>

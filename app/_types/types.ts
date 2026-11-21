@@ -24,7 +24,14 @@ export interface FeaturesPlanProps {
   text?: string;
 }
 export interface PlanProps {
-  title?: string;
+  title: string;
+  description: string;
+  price: string;
+  featured: boolean;
+  features: {
+    title: string;
+    detail: string;
+  }[];
 }
 export interface BriefFeacherProps {
   title?: string;

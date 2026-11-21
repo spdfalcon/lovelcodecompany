@@ -11,20 +11,20 @@ export default function Portfolios() {
         <div className="flex justify-center lg:justify-between  items-center">
           <div className="title">
             <div className="flex justify-center md:justify-normal font-cinema text-[25px] md:text-[40px] ">
-              <h2 className="">{("examplesofteamwork")}</h2>
+              <h2 className="">نمونه‌کارهای تیم</h2>
               <h2 className="gradient-orange text-transparent bg-clip-text">
-                {("lovelcode")}
+                لاول کد
               </h2>
             </div>
             <h2 className="font-light text-xs md:text-base text-center md:text-start text-gray_text">
-              {("portfoliotitledesc")}
+              نگاهی به پروژه‌ها و تجربه‌های تیم لاول کد در طراحی و توسعه وب‌سایت‌های اختصاصی
             </h2>
           </div>
           <Link
-            className="w-[188px] h-[55px] rounded-2xl bg-second_dark justify-center items-center hidden lg:flex shadow-btn "
+            className="hidden h-[40px] w-[130px] items-center justify-center rounded-xl bg-second_dark text-[12px] font-medium shadow-btn transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 lg:flex"
             href={""}
           >
-            {("viewall")}
+            مشاهده همه
           </Link>
         </div>
       </div>
@@ -35,7 +35,7 @@ export default function Portfolios() {
           shadow={true}
           type="box7"
           href="/"
-          title="viewall"
+          title="مشاهده همه"
           bg="background"
         ></Btn>
       </div>

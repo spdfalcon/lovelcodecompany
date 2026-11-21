@@ -13,7 +13,9 @@ export default function SliderPortfolios() {
           spaceBetween={0}
           className="mySwiper"
           autoplay={{
-            delay: 2500,
+            delay: 1500,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
           }}
           modules={[Autoplay]}
           breakpoints={{

@@ -18,11 +18,11 @@ export default function Footer() {
             <div className="absolute w-full h-full bg-black/90 top-0 left-0 -z-10"></div>
           </div>
           <div className="menu grid grid-cols-2 *:flex *:justify-center mt-9 gap-y-[30px] text-xs">
-            <Link href={"/"}>{("portfolio")}</Link>
-            <Link href={"/"}>{("websitedesignfee")}</Link>
-            <Link href={"/"}>{("articles")}</Link>
-            <Link href={"/"}>{("aboutus")}</Link>
-            <Link href={"/"}>{("contactus")}</Link>
+            <Link href={"/"}>نمونه‌کارها</Link>
+            <Link href={"/"}>تعرفه طراحی سایت</Link>
+            <Link href={"/"}>مقالات</Link>
+            <Link href={"/"}>درباره ما</Link>
+            <Link href={"/"}>تماس با ما</Link>
           </div>
           <Image
             className="absolute top-0 left-0 blur-sm -z-20"
@@ -64,11 +64,11 @@ export default function Footer() {
             height={43.71}
           ></Image>
           <div className="menu flex gap-4 lg:gap-9 text-sm">
-            <Link href={"/"}>{("portfolio")}</Link>
-            <Link href={"/"}>{("websitedesignfee")}</Link>
-            <Link href={"/"}>{("articles")}</Link>
-            <Link href={"/"}>{("aboutus")}</Link>
-            <Link href={"/"}>{("contactus")}</Link>
+            <Link href={"/"}>نمونه‌کارها</Link>
+            <Link href={"/"}>تعرفه طراحی سایت</Link>
+            <Link href={"/"}>مقالات</Link>
+            <Link href={"/"}>درباره ما</Link>
+            <Link href={"/"}>تماس با ما</Link>
           </div>
         </div>
         <div className="l">
@@ -90,7 +90,7 @@ export default function Footer() {
       
       </div>
       <div className="p flex py-6 justify-center text-white/40 text-xs bg-background">
-          {("copy")}
+          تمام حقوق مادی و معنوی این وب‌سایت متعلق به لاول کد  میباشد. © 2026
         </div>
     </>
   );

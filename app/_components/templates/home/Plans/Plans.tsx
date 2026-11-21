@@ -17,8 +17,8 @@ export default function Plans() {
                 لاول کد
               </h2>
             </div>
-            <h2 className="font-light text-xs text-gray_text md:text-base">
-              پلن های ویژه برای مشتریان به همراه بهترین و بالاترین کیفیت
+            <h2 className="mt-3 font-light text-xs text-gray_text md:text-base">
+              طراحی و برنامه‌نویسی اختصاصی وب‌سایت از صفر تا صد، متناسب با نیاز کسب‌وکار شما
             </h2>
           </div>
         </div>

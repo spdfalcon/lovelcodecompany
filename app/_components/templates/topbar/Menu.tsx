@@ -6,7 +6,7 @@ export default function Menu() {
   const navLinks = [
     { id: 1, title: "صفحه اصلی", href: "/" },
     { id: 2, title: "نمونه کارها", href: "/portfolio" },
-    { id: 3, title: "نمونه طراحی سایت", href: "/tariffs" },
+    { id: 3, title: "تعرفه طراحی سایت", href: "/tariffs" },
     { id: 4, title: "مقالات", href: "/articles" },
     { id: 5, title: "درباره ما", href: "/aboutus" },
     { id: 6, title: "تماس با ما", href: "/contactus" },
@@ -20,13 +20,13 @@ export default function Menu() {
         {navLinks.map((link) => (
           <li className="text-[10px] cursor-pointer lg:text-sm" key={link.id}>
             <Link
-              className={
+              className={`lc-nav-link transition-colors duration-300 ${
                 `/${mainPathName}` === link.href
                   ? "gradient-orange text-transparent bg-clip-text before:size-[2px] before:gradient-orange before:block relative before:absolute before:-top-px before:-right-1 before:rounded-full "
                   : pathname === `${link.href}`
                   ? "gradient-orange text-transparent bg-clip-text before:size-[2px] before:gradient-orange before:block relative before:absolute before:-top-px before:-right-1 before:rounded-full "
                   : ""
-              }
+              }`}
               href={`${link.href}`}
             >
               {link.title}

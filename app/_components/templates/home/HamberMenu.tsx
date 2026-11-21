@@ -7,7 +7,7 @@ export default function HamberMenu({ setIsShow }: any) {
   const navLinks = [
     { id: 1, title: "صفحه اصلی", href: "/" },
     { id: 2, title: "نمونه کارها", href: "/portfolio" },
-    { id: 3, title: "نمونه طراحی سایت", href: "/tariffs" },
+    { id: 3, title: "تعرفه طراحی سایت", href: "/tariffs" },
     { id: 4, title: "مقالات", href: "/articles" },
     { id: 5, title: "درباره ما", href: "/aboutus" },
     { id: 6, title: "تماس با ما", href: "/contactus" },

@@ -31,3 +31,67 @@
 
   
   
+
+/* LovelCode shared interaction system */
+@layer components {
+  .lc-interactive {
+    @apply relative cursor-pointer overflow-hidden;
+    transition:
+      transform 220ms ease,
+      filter 220ms ease,
+      box-shadow 220ms ease,
+      border-color 220ms ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .lc-interactive:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.08) saturate(1.08);
+    box-shadow: 0 8px 24px rgba(230, 85, 38, 0.18);
+  }
+
+  .lc-interactive:active {
+    transform: translateY(0) scale(0.97);
+    filter: brightness(0.96);
+  }
+
+  .lc-interactive:focus-visible,
+  .lc-nav-link:focus-visible {
+    outline: 2px solid #FFC828;
+    outline-offset: 4px;
+  }
+
+  .lc-interactive__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .lc-nav-link {
+    display: inline-block;
+    transition:
+      color 220ms ease,
+      transform 220ms ease,
+      filter 220ms ease;
+  }
+
+  .lc-nav-link:hover {
+    color: #FFC828;
+    filter: brightness(1.15);
+    transform: translateY(-1px);
+  }
+
+  .lc-filter-item:not(.gradient-orange):hover {
+    background: rgba(255, 200, 40, 0.08);
+  }
+
+  .lc-filter-item:active {
+    transform: scale(0.97);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lc-interactive,
+  .lc-nav-link {
+    transition: none !important;
+  }
+}

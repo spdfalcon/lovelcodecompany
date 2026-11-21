@@ -29,9 +29,9 @@ const Btn: React.FC<ButtonProps> = ({ title, bg, type, href, shadow }) => {
           : type === "box8"
           ? "w-[244px] h-[50px] rounded-[14px]"
           : ""
-      } flex justify-center items-center ${shadow ? "shadow-btn" : ""}`}
+      } lc-interactive flex justify-center items-center ${shadow ? "shadow-btn" : ""}`}
     >
-      <Link href={href} className="text-center text-xs md:text-base">
+      <Link href={href} className="lc-interactive__content flex h-full w-full items-center justify-center text-center text-xs md:text-base">
         {(title)}
       </Link>
     </div>

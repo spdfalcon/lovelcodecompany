@@ -1,13 +1,14 @@
-import Plan from "@/app/_components/modules/home/Plan";
 import React from "react";
+import Plan from "@/app/_components/modules/home/Plan";
+import { plans } from "./plansData";
+
 export default function SliderPlansMd() {
   return (
-    <div className="flex justify-center">
-      <div className="hidden md:flex md:flex-wrap md:justify-center md:gap-5">
-        <Plan title="پلن طراحی VIP"></Plan>
-        <Plan title="پلن طراحی VIP"></Plan>
-        <Plan title="پلن طراحی VIP"></Plan>
-        <Plan title="پلن طراحی VIP"></Plan>
+    <div className="hidden justify-center md:flex">
+      <div className="flex flex-wrap justify-center gap-4 xl:gap-5">
+        {plans.map((plan) => (
+          <Plan key={plan.title} {...plan} />
+        ))}
       </div>
     </div>
   );

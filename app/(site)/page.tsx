@@ -32,7 +32,7 @@ export default function Home() {
 }
 
 export const metadata: Metadata = {
-  title: "LovelCode/لاول کد",
+  title: "لاول کد | طراحی سایت اختصاصی",
   description: "طراحی سایت شخصی , طراحی سایت فروشگاهی , طراحی سایت ",
   icons: "/icons/icon.svg",
   keywords: "طراحی سایت , ساخت سایت , طراحی سایت شخصی , طرای سایت فروشگاهی",

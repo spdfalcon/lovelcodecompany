@@ -1,3 +1,4 @@
+import Breadcrumb from "@/app/_components/modules/Breadcrumb/Breadcrumb";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -7,37 +8,7 @@ export default function page() {
     <div className="mt-16">
       <div className="container">
         <div className="flex flex-col gap-20">
-          <div className="rounded-md p-3 flex items-center gap-2 bg-second_dark text-badge w-fit">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="size-3"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-              />
-            </svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="size-3"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 19.5 8.25 12l7.5-7.5"
-              />
-            </svg>
-            <span className="text-xs">مقالات</span>
-          </div>
+          <Breadcrumb embedded />
           <div className="grid grid-cols-7 gap-6">
             <div className="col-span-7 lg:col-span-5 p-6 bg-main_dark rounded-xl flex flex-col gap-8">
               <h1 className="text-lg font-bold">

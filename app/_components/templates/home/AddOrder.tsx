@@ -1,10 +1,12 @@
+"use client";
+
 import React from "react";
 import Player from "./Player";
 import Btn from "../../modules/Btn/Btn";
 
 export default function AddOrder() {
   return (
-    <div className="px-5 mt-11">
+    <div className="px-5 mt-[94px]">
       <div className="flex justify-center text-center">
         <div className="title">
           <div className="md:flex font-cinema text-[30px] md:text-[40px] ">
@@ -23,22 +25,12 @@ export default function AddOrder() {
       <div className="mid">
         <Player></Player>
       </div>
-      <div className="w-full down flex justify-center mt-5">
+      <div className="w-full down flex justify-center mt-7">
         <div className="md:hidden text-xs">
-          <Btn
-            bg="gradient"
-            type="box7"
-            href={"/"}
-            title={"ثبت سفارش طراحی سایت"}
-          ></Btn>
+          <button type="button" onClick={() => window.dispatchEvent(new Event("lovelcode:open-order"))} className="rounded-xl bg-gradient-to-r from-[#FFC828] to-[#F15A24] font-bold text-white shadow-btn transition-transform hover:scale-105 px-5 py-3 text-[15px]">ثبت سفارش طراحی سایت</button>
         </div>
         <div className="hidden md:flex text-[18px] shadow-btn">
-          <Btn
-            bg="gradient"
-            type="box2"
-            href={"/"}
-            title={"ثبت سفارش طراحی سایت"}
-          ></Btn>
+          <button type="button" onClick={() => window.dispatchEvent(new Event("lovelcode:open-order"))} className="rounded-xl bg-gradient-to-r from-[#FFC828] to-[#F15A24] font-bold text-white shadow-btn transition-transform hover:scale-105 px-7 py-3.5 text-[18px]">ثبت سفارش طراحی سایت</button>
         </div>
       </div>
     </div>

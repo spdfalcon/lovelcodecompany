@@ -19,7 +19,7 @@ export default function DeveloperInformation() {
                             </div>
                             <div className="flex flex-col gap-2">
                                 <h2>محمدرضا گودرزی</h2>
-                                <span>Front developer</span>
+                                <span>توسعه‌دهنده فرانت‌اند</span>
                             </div>
                         </div>
                         <div className="flex gap-2">
