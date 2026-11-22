@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import Portfolio from './Portfolio'
 export default function SliderPortfolios() {
   return (
-    <div className='md:hidden mt-9'>
+    <div className='md:hidden'>
       <Swiper
           slidesPerView={1}
           spaceBetween={0}

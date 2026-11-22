@@ -8,7 +8,7 @@ import Portfolio from "./Portfolio";
 
 const SliderPortfoliosMd = () => {
   return (
-    <div className="mt-9 hidden w-full min-w-0 md:block">
+    <div className="hidden w-full min-w-0 md:block">
       <Swiper
         modules={[Autoplay]}
         loop

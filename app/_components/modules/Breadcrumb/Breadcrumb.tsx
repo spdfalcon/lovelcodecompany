@@ -40,7 +40,7 @@ export default function Breadcrumb({
     <nav
       aria-label="مسیر صفحه"
       dir="rtl"
-      className="flex w-fit max-w-full items-center gap-2
+      className="relative top-[50px] flex w-fit max-w-full items-center gap-2
         rounded-lg bg-second_dark p-2.5 text-xs text-badge
         md:rounded-xl md:p-3"
     >

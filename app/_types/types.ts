@@ -1,6 +1,6 @@
 export interface ButtonProps {
   title?: string;
-  bg?: "gradient" | "background" | "";
+  bg?: "gradient" | "background" | "outline" | "";
   type?:
     | "box1"
     | "box2"

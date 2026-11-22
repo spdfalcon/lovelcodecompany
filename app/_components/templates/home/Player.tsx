@@ -31,16 +31,12 @@ export default function Player() {
   return (
     <>
       <div className="mid flex justify-center">
-        <div className="mt-11 w-[820px] rounded-3xl md:rounded-[60px] overflow-hidden relative">
-          <Image
-            width={820}
-            height={463}
-            className="blur-sm"
-            src="/home/video.png"
+        <div className="mt-11 w-full max-w-[820px] h-[240px] md:h-[360px] rounded-3xl md:rounded-[42px] overflow-hidden relative">
+          <Image fill sizes="(max-width: 768px) 100vw, 820px" className="object-cover object-center" src="/images/lovelcode-workspace.png"
             alt="ویدیوی معرفی طراحی سایت"
           />
 
-          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-black/20" />
 
           <button
             type="button"
@@ -58,7 +54,7 @@ export default function Player() {
               <Image
                 width={14}
                 height={14}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-2"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 !w-[14px] !h-[14px]"
                 src="/home/btnplay2.svg"
                 alt=""
               />

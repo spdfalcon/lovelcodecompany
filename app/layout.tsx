@@ -46,12 +46,10 @@ const cinema = localFont({
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html dir="rtl">
-      <body>
-        <body
-          className={`${cinema.variable} ${yekanbakh.variable} bg-background text-white font-yekanbakh`}
-        >
-          {children}
-        </body>
+      <body
+        className={`${cinema.variable} ${yekanbakh.variable} bg-background text-white font-yekanbakh`}
+      >
+        {children}
       </body>
     </html>
   );

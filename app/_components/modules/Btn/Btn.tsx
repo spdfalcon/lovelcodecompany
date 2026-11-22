@@ -10,6 +10,8 @@ const Btn: React.FC<ButtonProps> = ({ title, bg, type, href, shadow }) => {
           ? "gradient-orange"
           : bg === "background"
           ? "bg-main_dark/65"
+          : bg === "outline"
+          ? "border border-gray-500/60 bg-transparent text-gray-400 transition-all duration-300 hover:border-transparent"
           : ""
       } ${
         type === "box1"
@@ -27,11 +29,15 @@ const Btn: React.FC<ButtonProps> = ({ title, bg, type, href, shadow }) => {
           : type === "box7"
           ? "w-[320px] h-[50px] rounded-[14px]"
           : type === "box8"
-          ? "w-[244px] h-[50px] rounded-[14px]"
+          ? "w-full min-w-0 h-[44px] rounded-[14px]"
           : ""
-      } lc-interactive flex justify-center items-center ${shadow ? "shadow-btn" : ""}`}
+      } lc-interactive lc-outline-button group flex justify-center items-center ${shadow ? "shadow-btn" : ""}`}
     >
-      <Link href={href} className="lc-interactive__content flex h-full w-full items-center justify-center text-center text-xs md:text-base">
+      <Link href={href} className={`lc-interactive__content lc-outline-button__content flex h-full w-full items-center justify-center text-center transition-colors duration-300 ${
+          bg === "outline"
+            ? "rounded-[13px] text-[8px] md:text-xs text-gray-400 transition-all duration-300 hover:bg-gradient-to-r hover:from-[#FFC828] hover:to-[#F15A24] hover:text-white"
+            : "text-xs md:text-base"
+        }`}>
         {(title)}
       </Link>
     </div>

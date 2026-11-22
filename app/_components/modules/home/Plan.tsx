@@ -1,6 +1,5 @@
 import React from "react";
 import FeaturesPlan from "./FeaturesPlan";
-import Btn from "../Btn/Btn";
 import { PlanProps } from "@/app/_types/types";
 
 const Plan: React.FC<PlanProps> = ({
@@ -13,7 +12,11 @@ const Plan: React.FC<PlanProps> = ({
   return (
     <div className="flex h-full justify-center px-2">
       <div
-        className={`relative mt-12 flex w-[290px] flex-col rounded-[24px] border px-5 pb-6 pt-0 transition-all duration-300 hover:-translate-y-2 ${
+        className={`relative flex w-[290px] flex-col rounded-[24px] border px-5 transition-all duration-300 hover:-translate-y-2 ${
+          featured
+            ? "mt-[75px] pb-[49px] pt-0"
+            : "mt-[75px] pb-6 pt-0"
+        } ${
           featured
             ? "border-2 border-[#FFC828] bg-[#111522] shadow-[0_0_55px_rgba(255,200,40,0.30)] ring-1 ring-[#FFC828]/30"
             : "border-white/[0.08] bg-second_dark hover:border-[#FFC828]/30"
@@ -25,7 +28,7 @@ const Plan: React.FC<PlanProps> = ({
           <div
             className={`rounded-b-[16px] px-8 py-3 text-sm font-bold ${
               featured
-                ? "gradient-orange text-[#090D18]"
+                ? "gradient-orange text-white"
                 : "bg-white/[0.06] text-white"
             }`}
           >
@@ -86,7 +89,30 @@ const Plan: React.FC<PlanProps> = ({
         </div>
 
         <div className="mt-5">
-          <Btn bg="gradient" href="/" title="مشاهده پلن" type="box6" />
+          <a
+            href="/"
+            className={`group/plan-button relative mx-auto flex h-[50px] w-[233px]
+              items-center justify-center overflow-hidden rounded-[14px]
+              border text-center text-xs font-semibold
+              transition-all duration-300 md:text-base
+              hover:-translate-y-[2px] active:scale-[0.97]
+              ${
+                featured
+                  ? "border-transparent bg-gradient-to-r from-[#FFC828] to-[#F15A24] text-white"
+                  : "border-gray-500/60 bg-transparent text-gray-400 hover:border-[#F15A24] hover:text-white"
+              }`}
+          >
+            {!featured && (
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0
+                  bg-gradient-to-r from-[#FFC828] to-[#F15A24]
+                  opacity-0 transition-opacity duration-300
+                  group-hover/plan-button:opacity-100"
+              />
+            )}
+            <span className="relative z-10">مشاهده پلن</span>
+          </a>
         </div>
       </div>
     </div>

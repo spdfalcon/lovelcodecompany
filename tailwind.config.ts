@@ -23,7 +23,7 @@ const config: Config = {
         background: "#030712",
         primery_orang: "#FFC828",
         primery_red: "#E65526",
-        main_blue: "#5200FF",
+        main_blue: "#F15A24",
         main_dark: "#0E121E",
         second_dark: "#090D18",
         light_text: "#A9A9A9",

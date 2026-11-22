@@ -8,8 +8,6 @@ const SocialMedia: React.FC<SocialmediaProps> = ({
   iconsm,
   iconmd,
 }) => {
-  const isInstagram = bg.includes("E825D4");
-
   return (
     <div className="group relative w-[280px] md:w-[330px]">
       <div
@@ -27,9 +25,6 @@ const SocialMedia: React.FC<SocialmediaProps> = ({
 
         <div className="relative z-10 flex min-w-0 flex-1 items-center justify-between gap-2">
           <div className="flex min-w-0 flex-col gap-1">
-            <span className="text-[10px] font-medium text-white/75">
-              {isInstagram ? "INSTAGRAM" : "TELEGRAM"}
-            </span>
             <span className="text-[18px] font-bold leading-7 text-white drop-shadow-sm md:text-[20px]">
               {title}
             </span>

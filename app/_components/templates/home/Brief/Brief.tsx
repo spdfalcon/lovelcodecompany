@@ -1,63 +1,66 @@
-import Image from "next/image";
 import React from "react";
+import { Fingerprint, CodeXml, Gauge, ChartNoAxesCombined } from "lucide-react";
 
-const Brief = () => {
+const features = [
+  { icon: Fingerprint, title: "طراحی با هویت اختصاصی", desc: "متناسب با شخصیت برند و نیاز مخاطبان شما." },
+  { icon: CodeXml, title: "توسعه مهندسی‌شده", desc: "کدنویسی اصولی و ساختار قابل توسعه." },
+  { icon: Gauge, title: "سرعت و عملکرد بهینه", desc: "تجربه‌ای سریع و روان در دستگاه‌های مختلف." },
+  { icon: ChartNoAxesCombined, title: "آماده برای رشد", desc: "ساخت محصولی که همراه کسب‌وکار شما رشد کند." },
+];
+
+export default function Brief() {
   return (
-    <>
-      <div className="px-5">
-        <div className="mt-16">
-          <div className="flex justify-center items-center">
-            <div className="title text-center">
-              <div className="flex justify-center font-cinema text-[25px] md:text-[40px]">
-                <h2 className="gradient-orange text-transparent bg-clip-text">
-                  لاول کد
-                </h2>
-                <h2 className="">در یک نگاه</h2>
-              </div>
-              <h2 className="font-light text-xs md:text-base text-gray_text">
-                تو ارتقا کسب و کار های انلاین پیشرو هستیم :)
-              </h2>
-            </div>
-          </div>
-        </div>
-        <p className="mt-6 text-sm leading-7">
-          لاول کد در سال ۱۴۰۵ ساخته شد! طی فعالیت در حوزه­ بازاریابی و برندینگ
-          با افراد و کسب و کارهای کوچک و متوسط زیادی برخورد داشتیم که به دریافت
-          مشاوره و راهکار جهت توسعه و بهبود بیزینس خود نیاز داشتند، پاسخگویی به
-          این نیاز در حوزه ی بازاریابی و برندینگ منجر به شکل گیری لاول کد شد.
-        </p>
-        <p className="text-sm leading-7">{"briefdesc"}</p>
-        <div className="flex justify-center mt-5">
-          <div className="flex flex-col items-center w-[232px] h-[75px] bg-main_dark rounded-2xl justify-center shadow-btn mb-5">
-            <span className="text-xl">35</span>
-            <span className="text-xs">پروژه موفق در کارنامه تیم لاول کد</span>
-          </div>
-        </div>
-        <div className="flex justify-center">
-          <div className="relative w-80 h-[156px] mt-[65px] rounded-[22px] flex flex-col items-center gap-[15px] overflow-hidden justify-center">
-            <div className="z-10 text-center flex flex-col gap-[15px] px-8">
-              <h3 className="text-2xl font-cinema ">
-                شماره تلفن پشتیبانی لاول کد
-              </h3>
-              <p className="text-xs font-light">
-                ما منتظر تماس شما هستیم. ساعات پاسخگویی روزهای شنبه الی پنج شنبه
-                8.30 الی 21.00 می باشد.
-              </p>
-              <p>09305712252</p>
-            </div>
+    <section dir="rtl" className="px-5 pt-[124px] pb-[92px] text-white">
+      <div className="mx-auto max-w-xl">
 
-            <Image
-              className="blur-sm"
-              fill
-              alt="/home/brief/phone.png"
-              src={"/home/brief/phone.png"}
-            ></Image>
-            <div className="absolute top-0 left-0 w-full h-full bg-second_dark/90 "></div>
-          </div>
+
+        <h2 className="mt-5 font-cinema text-[34px] leading-[1.6]">
+          ما فقط وب‌سایت نمی‌سازیم؛
+          <span className="block gradient-orange bg-clip-text text-transparent">
+            تجربه دیجیتال خلق می‌کنیم.
+          </span>
+        </h2>
+
+        <p className="mt-4 text-[12px] leading-7 text-gray-400">
+          در لاول کد، طراحی خلاقانه را با مهندسی نرم‌افزار ترکیب
+          می‌کنیم تا کسب‌وکارها حضوری قدرتمند، سریع و متمایز در
+          دنیای دیجیتال داشته باشند.
+        </p>
+
+        <div className="mt-8 grid grid-cols-2 gap-3">
+          {features.map((feature) => (
+            <div
+              key={feature.title}
+              className="group rounded-2xl border border-white/[0.07] bg-[#0A0D15] p-4 transition-all duration-300 hover:border-transparent hover:bg-[linear-gradient(#0A0D15,#0A0D15),linear-gradient(90deg,rgba(255,200,40,0.25),rgba(241,90,36,0.25))] hover:[background-origin:padding-box,border-box] hover:[background-clip:padding-box,border-box] hover:text-white"
+            >
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500/10 text-lg text-orange-400 transition-colors duration-300 group-hover:text-white">
+                <feature.icon size={24} strokeWidth={1.7} />
+              </div>
+              <h3 className="text-sm font-semibold leading-6">
+                {feature.title}
+              </h3>
+              <p className="mt-2 text-xs leading-6 text-gray-400 transition-colors duration-300 group-hover:text-white">
+                {feature.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-9 rounded-[24px] border border-white/10 bg-second_dark p-6 text-center">
+          <h3 className="font-cinema text-2xl">
+            برای ساخت ایده بعدی آماده‌ای؟
+          </h3>
+          <p className="mt-3 text-sm leading-7 text-gray-300">
+            درباره پروژه‌ات با ما صحبت کن.
+          </p>
+          <a
+            href="tel:09305712252"
+            className="mt-5 inline-flex rounded-xl bg-gradient-to-r from-[#FFC828] to-[#F15A24] px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 hover:scale-[1.03]"
+          >
+            تماس با لاول کد — ۰۹۳۰۵۷۱۲۲۵۲
+          </a>
         </div>
       </div>
-    </>
+    </section>
   );
-};
-
-export default Brief;
+}

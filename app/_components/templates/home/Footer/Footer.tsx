@@ -1,97 +1,61 @@
-
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+
+const footerLinks = [
+  { title: "نمونه‌کارها", href: "/portfolio" },
+  { title: "تعرفه طراحی سایت", href: "/tariffs" },
+  { title: "مقالات", href: "/articles" },
+  { title: "درباره ما", href: "/aboutus" },
+  { title: "تماس با ما", href: "/contactus" },
+];
 
 export default function Footer() {
   return (
-    <>
-      <div className="md:hidden gap-y-9 mt-[100px] flex flex-col  py-11">
-        <div className="logoandmenu relative overflow-hidden py-11">
-          <div className="logo flex justify-center">
+    <footer dir="rtl" className="mt-[100px] text-white">
+      <div className="relative overflow-hidden px-5 py-14 md:px-[110px]">
+        <Image
+          src="/footer/bgmd.png"
+          alt=""
+          fill
+          className="-z-20 object-cover blur-sm"
+        />
+        <div className="absolute inset-0 -z-10 bg-black/90" />
+
+        <div className="mx-auto flex w-full flex-col-reverse items-center justify-center gap-9 md:flex-row md:justify-between md:gap-12">
+          <nav
+            aria-label="لینک‌های فوتر"
+            className="flex flex-wrap items-center justify-center gap-x-5 gap-y-5 text-center text-xs md:gap-x-8 md:text-sm"
+          >
+            {footerLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="bg-gradient-to-r from-[#FFC828] to-[#F15A24] bg-clip-text text-white transition-all duration-300 hover:text-transparent"
+              >
+                {item.title}
+              </Link>
+            ))}
+          </nav>
+
+          <Link
+            href="/"
+            aria-label="صفحه اصلی لاول کد"
+            className="inline-flex shrink-0 items-center justify-center"
+          >
             <Image
-              alt=""
-              src={"/footer/icon.png"}
-              width={65.52}
-              height={43.71}
-            ></Image>
-            <div className="absolute w-full h-full bg-black/90 top-0 left-0 -z-10"></div>
-          </div>
-          <div className="menu grid grid-cols-2 *:flex *:justify-center mt-9 gap-y-[30px] text-xs">
-            <Link href={"/"}>نمونه‌کارها</Link>
-            <Link href={"/"}>تعرفه طراحی سایت</Link>
-            <Link href={"/"}>مقالات</Link>
-            <Link href={"/"}>درباره ما</Link>
-            <Link href={"/"}>تماس با ما</Link>
-          </div>
-          <Image
-            className="absolute top-0 left-0 blur-sm -z-20"
-            alt=""
-            src={"/footer/bgsm.png"}
-            fill
-          ></Image>
+              src="/navbar/lovelcode-logo.png"
+              alt="لوگوی لاول کد"
+              width={150}
+              height={60}
+              className="h-auto w-[78px] object-contain"
+            />
+          </Link>
         </div>
-        <div className="enamad flex justify-center gap-6">
-          <Image
-            alt=""
-            src={"/footer/namad1.png"}
-            width={101}
-            height={115}
-          ></Image>
-          <Image
-            alt=""
-            src={"/footer/namad2.png"}
-            width={101}
-            height={115}
-          ></Image>
-        </div>
-       
       </div>
 
-      <div className="relative hidden md:flex justify-between items-center px-[60px] py-10 mt-[100px] overflow-hidden">
-        <Image
-          className="blur-sm -z-20"
-          alt=""
-          src={"/footer/bgmd.png"}
-          fill
-        ></Image>
-        <div className="absolute w-full h-full bg-black/90 top-0 left-0 -z-10"></div>
-        <div className="r flex flex-col gap-9">
-          <Image
-            alt=""
-            src={"/footer/icon.png"}
-            width={65.52}
-            height={43.71}
-          ></Image>
-          <div className="menu flex gap-4 lg:gap-9 text-sm">
-            <Link href={"/"}>نمونه‌کارها</Link>
-            <Link href={"/"}>تعرفه طراحی سایت</Link>
-            <Link href={"/"}>مقالات</Link>
-            <Link href={"/"}>درباره ما</Link>
-            <Link href={"/"}>تماس با ما</Link>
-          </div>
-        </div>
-        <div className="l">
-          <div className="enamad flex justify-center gap-6">
-            <Image
-              alt=""
-              src={"/footer/namad1.png"}
-              width={101}
-              height={115}
-            ></Image>
-            <Image
-              alt=""
-              src={"/footer/namad2.png"}
-              width={101}
-              height={115}
-            ></Image>
-          </div>
-        </div>
-      
+      <div className="bg-background px-4 py-6 text-center text-xs text-white/40">
+        تمام حقوق مادی و معنوی این وب‌سایت متعلق به لاول کد می‌باشد. © 2026
       </div>
-      <div className="p flex py-6 justify-center text-white/40 text-xs bg-background">
-          تمام حقوق مادی و معنوی این وب‌سایت متعلق به لاول کد  میباشد. © 2026
-        </div>
-    </>
+    </footer>
   );
 }

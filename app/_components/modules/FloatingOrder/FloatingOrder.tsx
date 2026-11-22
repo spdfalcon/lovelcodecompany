@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useDropdownDismiss } from "@/app/_hooks/useDropdownDismiss";
 
 const orderTypes = [
   "طراحی سایت فروشگاهی",
@@ -16,10 +18,62 @@ const orderTypes = [
 
 export default function FloatingOrder() {
   const [open, setOpen] = useState(false);
+
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+  const [homeFloatingVisible, setHomeFloatingVisible] = useState(false);
+
+  useEffect(() => {
+    if (pathname !== "/") {
+      setHomeFloatingVisible(false);
+      return;
+    }
+
+    setHomeFloatingVisible(false);
+
+    let observer: IntersectionObserver | null = null;
+    let frame = 0;
+
+    const observeButton = () => {
+      const target = document.getElementById("home-order-cta");
+
+      if (!target) {
+        frame = requestAnimationFrame(observeButton);
+        return;
+      }
+
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (!entry) return;
+
+          // Show the floating button only after the main CTA
+          // has scrolled above the viewport.
+          const passedButton =
+            !entry.isIntersecting &&
+            entry.boundingClientRect.bottom <= 0;
+
+          setHomeFloatingVisible(passedButton);
+        },
+        { threshold: 0 }
+      );
+
+      observer.observe(target);
+    };
+
+    observeButton();
+
+    return () => {
+      cancelAnimationFrame(frame);
+      observer?.disconnect();
+    };
+  }, [pathname]);
+
+
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [service, setService] = useState("");
   const [serviceOpen, setServiceOpen] = useState(false);
+  const serviceRef = useDropdownDismiss(serviceOpen, () => setServiceOpen(false));
   const [description, setDescription] = useState("");
 
   useEffect(() => {
@@ -31,21 +85,192 @@ export default function FloatingOrder() {
 
   return (
     <>
+      
+      <style jsx global>{`
+        @keyframes lovelFloatEnter {
+          0% {
+            opacity: 0;
+            transform: translate3d(0, 85px, 0) scale(0.35) rotate(-12deg);
+            filter: blur(12px) brightness(1.8);
+          }
+          45% {
+            opacity: 1;
+            transform: translate3d(0, -17px, 0) scale(1.13) rotate(4deg);
+            filter: blur(0) brightness(1.2);
+          }
+          65% {
+            transform: translate3d(0, 7px, 0) scale(0.95) rotate(-2deg);
+          }
+          82% {
+            transform: translate3d(0, -4px, 0) scale(1.035) rotate(1deg);
+          }
+          100% {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale(1) rotate(0);
+            filter: blur(0) brightness(1);
+          }
+        }
+
+        @keyframes lovelFloatExit {
+          0% {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale(1);
+            filter: blur(0);
+          }
+          30% {
+            opacity: 1;
+            transform: translate3d(0, -12px, 0) scale(1.08) rotate(-3deg);
+          }
+          100% {
+            opacity: 0;
+            transform: translate3d(0, 85px, 0) scale(0.45) rotate(10deg);
+            filter: blur(10px);
+          }
+        }
+
+        .lovel-float-enter {
+          animation: lovelFloatEnter 850ms cubic-bezier(.2,.8,.2,1) both;
+          will-change: transform, opacity, filter;
+        }
+
+        .lovel-float-exit {
+          animation: lovelFloatExit 420ms ease-in both;
+          will-change: transform, opacity, filter;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .lovel-float-enter,
+          .lovel-float-exit {
+            animation-duration: 0.01ms;
+          }
+        }
+      `}</style>
+
+      
+      
+      
       {/* Floating order button */}
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="fixed bottom-10 right-10 z-[90]
-          rounded-2xl bg-gradient-to-r from-[#FFC828] to-[#F15A24]
-          px-5 py-4 text-sm font-bold text-white
-          shadow-[0_10px_35px_rgba(241,90,36,0.35)]
-          transition-transform hover:scale-105"
         aria-label="باز کردن فرم ثبت سفارش"
+        aria-hidden={isHomePage && !homeFloatingVisible}
+        tabIndex={isHomePage && !homeFloatingVisible ? -1 : 0}
+        className={`lovel-order-motion fixed bottom-10 right-10 z-[90]
+          rounded-2xl px-5 py-4 text-sm font-bold text-white
+          bg-gradient-to-r from-[#FFC828] to-[#F15A24]
+          ${
+            isHomePage && !homeFloatingVisible
+              ? "lovel-order-out pointer-events-none"
+              : "lovel-order-in"
+          }`}
       >
-        ثبت سفارش فوری
+        <span className="relative z-10 whitespace-nowrap">
+          ثبت سفارش فوری
+        </span>
+        <span className="lovel-order-shimmer" aria-hidden="true" />
       </button>
 
-      {open && (
+      <style jsx global>{`
+        @keyframes lovelOrderEnter {
+          0% {
+            opacity: 0;
+            transform: translate3d(0, 70px, 0) scale(.65) rotate(-7deg);
+            filter: blur(8px);
+          }
+          55% {
+            opacity: 1;
+            transform: translate3d(0, -12px, 0) scale(1.08) rotate(2deg);
+            filter: blur(0);
+          }
+          75% {
+            transform: translate3d(0, 5px, 0) scale(.97);
+          }
+          100% {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale(1);
+            filter: blur(0);
+          }
+        }
+
+        @keyframes lovelOrderExit {
+          0% {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale(1);
+          }
+          100% {
+            opacity: 0;
+            transform: translate3d(0, 60px, 0) scale(.7);
+          }
+        }
+
+        @keyframes lovelOrderPulse {
+          0%, 100% {
+            box-shadow: 0 10px 30px rgba(241,90,36,.3);
+          }
+          50% {
+            box-shadow:
+              0 12px 42px rgba(241,90,36,.65),
+              0 0 24px rgba(255,190,60,.3);
+          }
+        }
+
+        @keyframes lovelOrderShimmer {
+          0%, 20% {
+            transform: translateX(-250%) skewX(-25deg);
+          }
+          55%, 100% {
+            transform: translateX(280%) skewX(-25deg);
+          }
+        }
+
+        .lovel-order-motion {
+          isolation: isolate;
+          overflow: hidden;
+          border: none;
+          outline-offset: 3px;
+          transform-origin: center;
+          backface-visibility: hidden;
+        }
+
+        .lovel-order-in {
+          animation:
+            lovelOrderEnter 850ms cubic-bezier(.2,.8,.2,1) both,
+            lovelOrderPulse 2.6s ease-in-out 850ms infinite;
+        }
+
+        .lovel-order-out {
+          animation: lovelOrderExit 350ms ease-in both;
+        }
+
+        .lovel-order-shimmer {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          border-radius: inherit;
+          background: linear-gradient(
+            105deg,
+            transparent 30%,
+            rgba(255,255,255,.4) 50%,
+            transparent 70%
+          );
+          animation: lovelOrderShimmer 3.2s ease-in-out infinite;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .lovel-order-in,
+          .lovel-order-out,
+          .lovel-order-shimmer {
+            animation: none !important;
+          }
+
+          .lovel-order-out {
+            opacity: 0;
+          }
+        }
+      `}</style>
+
+{open && (
         <div
           className="fixed inset-0 z-[100] flex items-center
             justify-center bg-black/75 p-4"
@@ -128,7 +353,7 @@ export default function FloatingOrder() {
               <label className="flex flex-col gap-2 text-sm">
                 نوع سفارش
                 
-                  <div className="relative">
+                  <div ref={serviceRef} className="relative">
                     <button
                       type="button"
                       aria-label="انتخاب نوع سفارش"
